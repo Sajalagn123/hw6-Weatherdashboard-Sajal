@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-image: url(images/raindrops.jpg);
+    width: 100%;
+    text-align: center;
+    text-align: center;
+    padding: 31px 0px;
+}
+
+h2 {
+    color: white;
+}
+
+.Weather-info {
+    border: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 17px;
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+
+
+}
+
+.content {
+    display: flex;
+
+    margin-top: 22px;
+
+}
+
+.right-content {
+    width: 100%;
+    margin-left: 30px;
+    padding: 17px;
+}
+
+aside {
+    padding-left: 10px;
+}
+
+ul {
+
+    list-style-type: none;
+    margin-block-start: 0em;
+    padding-inline-start: 0;
+    margin-top: 20px;
+
+}
+
+li {
+    margin-bottom: 38px;
+}
+
+.forecast {
+    /*border:1px solid black;*/
+}
+
+button {
+    background-color: #b3b3b3;
+    width: 233px;
+    height: 38px;
+    border-style: none;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+#search {
+    margin-top: 11px;
+    background-color: #72cb74;
+}
+
+hr {
+    border-color: black;
+    border-width: 1px;
+}
+
+#uv {
+    background-color: #1da71d;
+    border-radius: 3px;
+    padding: 5px 13px;
+    color: white;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #727171;
+    color: white;
+    cursor: pointer; 
+}
+
+button#search:hover {
+    background-color: green;
+}
+
+.boxes {
+display: flex;
+    justify-content: space-evenly;
+}
+
+.box1 {
+    border: 4px;
+    border-style: solid;
+    border-color: black;
+} 
+
+.box2 {
+    border: 4px;
+    border-style: solid;
+    border-color: black;
+}
+
+.box3 {
+    border: 4px;
+    border-style: solid;
+    border-color: black;
+}
+
+.box4 {
+    border: 4px;
+    border-style: solid;
+    border-color: black;
+}
+
+.box5 {
+    border: 4px;
+    border-style: solid;
+    border-color: black;
+}

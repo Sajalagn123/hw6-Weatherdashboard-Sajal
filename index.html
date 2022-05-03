@@ -1,44 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Weather Dashboard</title>
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
     <header>
-        <h3>Weather Dashboard</h3>
+        <h2>Weather Dashboard</h2>
     </header>
+    <div class="content">
 
-    <div class="Weather-info">
-        <h3>Atlanta (3/30/2022)</h3>
-        <p>Temp: 74.01</p>
-        <p>Wind:6.67 MPH</p>
-        <p>Humidity: 46%</p>
-        <p>UV Index: 0.47</p>
+        <aside>
+            <h3>Search for a City:</h3>
+            <input type="text">
+            <button id="search">Search</button>
+            <hr>
+            <ul>
+                <li><button>Austin</button></li>
+                <li><button>Chicago</button></li>
+                <li><button>New York</button></li>
+                <li><button>Orlando</button></li>
+                <li><button>San Francisco</button></li>
+                <li><button>Seattle</button></li>
+                <li><button>Denver</button></li>
+                <li><button>Atlanta</button></li>
+            </ul>
+        </aside>
+
+        <div class="right-content">
+            <div class="Weather-info">
+                <h3>Atlanta (3/30/2022)</h3>
+                <p>Temp: 74.01</p>
+                <p>Wind:6.67 MPH</p>
+                <p>Humidity: 46%</p>
+                <p>UV Index: <span id="uv">0.47</span></p>
+            </div>
+
+            <div class="forecast">
+                <h3>5-day forecast</h3>
+                <div class="boxes">
+                <div class="box1">
+                    <h4 id="weatherdate1">3/31/2022</h4>
+                    <img>
+                    <h4>Temp: <span id="weathertemp1">30.0</span></h4>
+                    <h4>Wind: <span id="weatherwind1">30.0</span></h4>
+                    <h4>Humidity: <span id="weatherhumid1">30.0</span></h4>
+                </div>
+                <div class="box2">
+                    <h4 id="weatherdate1">3/31/2022</h4>
+                    <img>
+                    <h4>Temp: <span id="weathertemp1">30.0</span></h4>
+                    <h4>Wind: <span id="weatherwind1">30.0</span></h4>
+                    <h4>Humidity: <span id="weatherhumid1">30.0</span></h4>
+                </div>
+                <div class="box3">
+                    <h4 id="weatherdate1">3/31/2022</h4>
+                    <img>
+                    <h4>Temp: <span id="weathertemp1">30.0</span></h4>
+                    <h4>Wind: <span id="weatherwind1">30.0</span></h4>
+                    <h4>Humidity: <span id="weatherhumid1">30.0</span></h4>
+                </div>
+                <div class="box4">
+                    <h4 id="weatherdate1">3/31/2022</h4>
+                    <img>
+                    <h4>Temp: <span id="weathertemp1">30.0</span></h4>
+                    <h4>Wind: <span id="weatherwind1">30.0</span></h4>
+                    <h4>Humidity: <span id="weatherhumid1">30.0</span></h4>
+                </div>
+                <div class="box5">
+                    <h4 id="weatherdate1">3/31/2022</h4>
+                    <img>
+                    <h4>Temp: <span id="weathertemp1">30.0</span></h4>
+                    <h4>Wind: <span id="weatherwind1">30.0</span></h4>
+                    <h4>Humidity: <span id="weatherhumid1">30.0</span></h4>
+                </div>
+            </div>
+            </div>
+
+        </div>
+
+
     </div>
 
-    <aside>
-        <h3>Search for a City:</h3>
-        <input type="text">
-        <button>Search</button>
-        <ul>
-            <li><button>Austin</button></li>
-            <li><button>Chicago</button></li>
-            <li><button>New York</button></li>
-            <li><button>Orlando</button></li>
-            <li><button>San Francisco</button></li>
-            <li><button>Seattle</button></li>
-            <li><button>Denver</button></li>
-            <li><button>Atlanta</button></li>
-        </ul>
-    </aside>
 
-    <div class="forecast">
-        
-    </div>
+
 
 
 </body>
