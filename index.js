@@ -7,7 +7,7 @@
 /** Refreshes the weather data */
 var results;
 
-console.log(localStorage.getItem("citylist"))
+
 if (localStorage.getItem("citylist") == null) {
     localStorage.setItem("citylist", '[]');
 }
@@ -30,6 +30,31 @@ function displayWeather(num) {
 
     if (num == 0) {
         document.getElementById("uv").innerText = results.daily[num].uvi
+        
+        var uvi = parseFloat(results.daily[num].uvi);
+        
+        if(uvi <= 2)
+        {
+            document.getElementById("uv").classList.add("bg-low");
+        }        
+        if(uvi > 2 && uvi <= 5)
+        {
+            document.getElementById("uv").classList.add("bg-medium");
+        }
+        if(uvi > 5 && uvi <= 7)
+        {
+            document.getElementById("uv").classList.add("bg-high");
+        }        
+        if(uvi > 7 && uvi <= 10)
+        {
+            document.getElementById("uv").classList.add("bg-veryHigh");
+        }
+        if(uvi > 10)
+        {
+            document.getElementById("uv").classList.add("bg-extremelyHigh");
+        }
+
+
     }
 }
 
@@ -57,10 +82,12 @@ function loadWeatherData(lat, long) {
 
 }
 
+
+
 //loadWeatherData(33.44,-94.5);
 function refreshHistory() {
     var currentCityList = localStorage.getItem("citylist");
-    console.log(currentCityList)
+   
     currentCityList = JSON.parse(currentCityList);
 
     var outputHtml = '';
@@ -79,12 +106,12 @@ function searchButton(cityname = '') {
         x = document.getElementById("result").value;
 
         var currentCityList = localStorage.getItem("citylist");
-        console.log(currentCityList)
+        
         currentCityList = JSON.parse(currentCityList);
 
         currentCityList.push(x);
 
-        console.log(currentCityList);
+        
         currentCityList = JSON.stringify(currentCityList);
         localStorage.setItem("citylist", currentCityList);
     }
@@ -92,7 +119,7 @@ function searchButton(cityname = '') {
         x = cityname;
     }
 
-
+  
 
 
     refreshHistory();
@@ -110,8 +137,7 @@ function searchButton(cityname = '') {
         cityDetails = JSON.parse(Http.responseText);
         //console.log();
 
-        console.log(cityDetails.location.lat, cityDetails.location.lon);
-
+        
         loadWeatherData(cityDetails.location.lat, cityDetails.location.lon);
         //loadWeatherData(cityDetails[ cityDetails.location.lat])
     }
@@ -135,6 +161,7 @@ function searchButton(cityname = '') {
      */
 }
 
+searchButton('los angeles');
 
 
 //http://api.weatherapi.com/v1/current.json?key=ad1e479decca463983d231628220405&q=London&aqi=no

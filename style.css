@@ -83,7 +83,7 @@ hr {
 }
 
 #uv {
-    background-color: #1da71d;
+    
     border-radius: 3px;
     padding: 5px 13px;
     color: white;
@@ -133,4 +133,25 @@ display: flex;
     border: 4px;
     border-style: solid;
     border-color: black;
+}
+
+.bg-low {
+    background-color: #41d924;
+}
+
+.bg-medium {
+    background-color: rgb(253 216 53);
+}
+
+.bg-high {
+    background-color: rgb(255 179 1);
+}
+
+.bg-veryHigh {
+    background-color: rgb(209 57 74);
+}
+
+.bg-extremelyHigh {
+    background-color:rgb(149 79 113)
+;
 }
