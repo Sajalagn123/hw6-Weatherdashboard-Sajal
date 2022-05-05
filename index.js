@@ -61,7 +61,7 @@ function displayWeather(num) {
 function loadWeatherData(lat, long) {
 
     const Http = new XMLHttpRequest();
-    const url = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + long + '&appid=0803a401b3162ccbcd5921eef9926928';
+    const url = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + long + '&appid=f4422f4cb3a82e450745466518b05ea6';
     Http.open("GET", url);
     Http.send();
 
