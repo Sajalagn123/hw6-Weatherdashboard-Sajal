@@ -6,6 +6,7 @@
 
 /** Refreshes the weather data */
 var results;
+var city_name;
 
 
 if (localStorage.getItem("citylist") == null) {
@@ -18,7 +19,7 @@ function displayWeather(num) {
     var tempDate = new Date(weatherdate1Timestamp * 1000);
 
     var weatherdate1 = (tempDate.getMonth() + 1) + "/" + tempDate.getDate() + "/" + tempDate.getFullYear()
-    document.getElementById("weatherdate" + num).innerText = weatherdate1;
+    document.getElementById("weatherdate" + num).innerText = city_name + " " + weatherdate1;
 
     document.getElementById("weathertemp" + num).innerText = results.daily[num].temp.day
 
@@ -30,27 +31,22 @@ function displayWeather(num) {
 
     if (num == 0) {
         document.getElementById("uv").innerText = results.daily[num].uvi
-        
+
         var uvi = parseFloat(results.daily[num].uvi);
-        
-        if(uvi <= 2)
-        {
+
+        if (uvi <= 2) {
             document.getElementById("uv").classList.add("bg-low");
-        }        
-        if(uvi > 2 && uvi <= 5)
-        {
+        }
+        if (uvi > 2 && uvi <= 5) {
             document.getElementById("uv").classList.add("bg-medium");
         }
-        if(uvi > 5 && uvi <= 7)
-        {
+        if (uvi > 5 && uvi <= 7) {
             document.getElementById("uv").classList.add("bg-high");
-        }        
-        if(uvi > 7 && uvi <= 10)
-        {
+        }
+        if (uvi > 7 && uvi <= 10) {
             document.getElementById("uv").classList.add("bg-veryHigh");
         }
-        if(uvi > 10)
-        {
+        if (uvi > 10) {
             document.getElementById("uv").classList.add("bg-extremelyHigh");
         }
 
@@ -87,7 +83,7 @@ function loadWeatherData(lat, long) {
 //loadWeatherData(33.44,-94.5);
 function refreshHistory() {
     var currentCityList = localStorage.getItem("citylist");
-   
+
     currentCityList = JSON.parse(currentCityList);
 
     var outputHtml = '';
@@ -106,12 +102,12 @@ function searchButton(cityname = '') {
         x = document.getElementById("result").value;
 
         var currentCityList = localStorage.getItem("citylist");
-        
+
         currentCityList = JSON.parse(currentCityList);
 
         currentCityList.push(x);
 
-        
+
         currentCityList = JSON.stringify(currentCityList);
         localStorage.setItem("citylist", currentCityList);
     }
@@ -119,7 +115,7 @@ function searchButton(cityname = '') {
         x = cityname;
     }
 
-  
+
 
 
     refreshHistory();
@@ -135,9 +131,10 @@ function searchButton(cityname = '') {
 
         //console.log(Http.responseText);
         cityDetails = JSON.parse(Http.responseText);
-        //console.log();
+        //console.log(cityDetails);
+        city_name = cityDetails.location.name 
 
-        
+
         loadWeatherData(cityDetails.location.lat, cityDetails.location.lon);
         //loadWeatherData(cityDetails[ cityDetails.location.lat])
     }
