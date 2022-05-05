@@ -7,6 +7,11 @@
 /** Refreshes the weather data */
 var results;
 
+console.log(localStorage.getItem("citylist"))
+if (localStorage.getItem("citylist") == null) {
+    localStorage.setItem("citylist", '[]');
+}
+
 function displayWeather(num) {
 
     var weatherdate1Timestamp = results.daily[num].dt
@@ -28,10 +33,10 @@ function displayWeather(num) {
     }
 }
 
-function loadWeatherData(lat,long) {
+function loadWeatherData(lat, long) {
 
     const Http = new XMLHttpRequest();
-    const url = 'https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+long+'&appid=0803a401b3162ccbcd5921eef9926928';
+    const url = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + long + '&appid=0803a401b3162ccbcd5921eef9926928';
     Http.open("GET", url);
     Http.send();
 
@@ -52,27 +57,85 @@ function loadWeatherData(lat,long) {
 
 }
 
-loadWeatherData(33.44,-94.5);
+//loadWeatherData(33.44,-94.5);
+function refreshHistory() {
+    var currentCityList = localStorage.getItem("citylist");
+    console.log(currentCityList)
+    currentCityList = JSON.parse(currentCityList);
 
-function searchButton()
-{
-    var x = document.getElementById("result").value;
-    //x = x.toLowerCase();
-    var cities = {
-        "austin":{lat:30.405790218321375,long:-97.88649374062982},
-        "chicago":{lat:41.85292874764548,long:-87.68034246651565},
-        "newyork":{lat:40.71557974781632,long:-73.99059576070117},
-        "orlando":{lat:28.541429731701104,long:-81.3948051893707},
-        "sanfrancisco":{lat:37.75293193702904,long:-122.46502842767454},
-        "seattle":{lat:47.60912956410058,long:-122.32284713614095},
-        "denver":{lat:39.730952219760034,long:-104.88812580261084},
-        "atlanta":{lat:33.767018443344284,long: -84.45562831872064},
-
+    var outputHtml = '';
+    for (let i = 0; i < currentCityList.length; i++) {
+        outputHtml += '<li><button onclick="searchButton(\'' + currentCityList[i] + '\')">' + currentCityList[i] + '</button></li>';
     }
-    x = x.replace(' ', '').toLowerCase();
-    console.log(cities[x].long)
-    loadWeatherData(cities[x].lat, cities[x].long);
+    document.getElementById("history").innerHTML = outputHtml;
+}
+
+refreshHistory();
+
+function searchButton(cityname = '') {
+
+    var x;
+    if (cityname == '') {
+        x = document.getElementById("result").value;
+
+        var currentCityList = localStorage.getItem("citylist");
+        console.log(currentCityList)
+        currentCityList = JSON.parse(currentCityList);
+
+        currentCityList.push(x);
+
+        console.log(currentCityList);
+        currentCityList = JSON.stringify(currentCityList);
+        localStorage.setItem("citylist", currentCityList);
+    }
+    else {
+        x = cityname;
+    }
+
+
+
+
+    refreshHistory();
+
+    var cityDetails;
+    const Http = new XMLHttpRequest();
+    const url = 'http://api.weatherapi.com/v1/current.json?key=ad1e479decca463983d231628220405&q=' + x + '&aqi=no';
+    Http.open("GET", url);
+    Http.send();
+
+
+    Http.onload = () => {
+
+        //console.log(Http.responseText);
+        cityDetails = JSON.parse(Http.responseText);
+        //console.log();
+
+        console.log(cityDetails.location.lat, cityDetails.location.lon);
+
+        loadWeatherData(cityDetails.location.lat, cityDetails.location.lon);
+        //loadWeatherData(cityDetails[ cityDetails.location.lat])
+    }
+
+    /*
+     //x = x.toLowerCase();
+     var cities = {
+         "austin":{lat:30.405790218321375,long:-97.88649374062982},
+         "chicago":{lat:41.85292874764548,long:-87.68034246651565},
+         "newyork":{lat:40.71557974781632,long:-73.99059576070117},
+         "orlando":{lat:28.541429731701104,long:-81.3948051893707},
+         "sanfrancisco":{lat:37.75293193702904,long:-122.46502842767454},
+         "seattle":{lat:47.60912956410058,long:-122.32284713614095},
+         "denver":{lat:39.730952219760034,long:-104.88812580261084},
+         "atlanta":{lat:33.767018443344284,long: -84.45562831872064},
+ 
+     }
+     x = x.replace(' ', '').toLowerCase();
+     console.log(cities[x].long)
+     loadWeatherData(cities[x].lat, cities[x].long);
+     */
 }
 
 
+
+//http://api.weatherapi.com/v1/current.json?key=ad1e479decca463983d231628220405&q=London&aqi=no
 
