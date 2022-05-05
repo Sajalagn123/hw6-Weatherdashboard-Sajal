@@ -13,5 +13,7 @@ Added weather data from the API that shows the current weather, the forecast for
 
 Updated JS file so that the application stores and returns data from local storage and shows up on the side in search history.
 
+Page now loads los angeles data as the default page so it doesn't display no values anymore. The page also has a dynamic uv index that changes color based on the uv scale.
+
 ## Instalation
 To install my project, I created a repository for it on Github. After that I cloned the repository onto my desktop. I then copied the folders from my class repository and pasted them into my folder. From there, I opened the assignments into a serperate folder.
