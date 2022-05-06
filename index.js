@@ -51,11 +51,11 @@ function loadWeatherData(lat, long) {
 
     const Http = new XMLHttpRequest();
     const url = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + long + '&appid=f4422f4cb3a82e450745466518b05ea6';
-    Http.open("GET", url);
-    Http.send();
+    Https.open("GET", url);
+    Https.send();
 
 
-    Http.onload = () => {
+    Https.onload = () => {
 
         //console.log(Http.responseText);
         results = JSON.parse(Http.responseText);
