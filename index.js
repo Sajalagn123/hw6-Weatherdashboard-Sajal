@@ -116,11 +116,11 @@ function searchButton(cityname = '') {
     var cityDetails;
     const Http = new XMLHttpRequest();
     const url = 'https://api.weatherapi.com/v1/current.json?key=ad1e479decca463983d231628220405&q=' + x + '&aqi=no';
-    Https.open("GET", url);
-    Https.send();
+    Http.open("GET", url);
+    Http.send();
 
 
-    Https.onload = () => {
+    Http.onload = () => {
 
         //console.log(Http.responseText);
         cityDetails = JSON.parse(Http.responseText);
