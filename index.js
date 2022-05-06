@@ -51,11 +51,11 @@ function loadWeatherData(lat, long) {
 
     const Http = new XMLHttpRequest();
     const url = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + long + '&appid=f4422f4cb3a82e450745466518b05ea6';
-    Https.open("GET", url);
-    Https.send();
+    Http.open("GET", url);
+    Http.send();
 
 
-    Https.onload = () => {
+    Http.onload = () => {
 
         //console.log(Http.responseText);
         results = JSON.parse(Http.responseText);
@@ -115,12 +115,12 @@ function searchButton(cityname = '') {
 
     var cityDetails;
     const Http = new XMLHttpRequest();
-    const url = 'http://api.weatherapi.com/v1/current.json?key=ad1e479decca463983d231628220405&q=' + x + '&aqi=no';
-    Http.open("GET", url);
-    Http.send();
+    const url = 'https://api.weatherapi.com/v1/current.json?key=ad1e479decca463983d231628220405&q=' + x + '&aqi=no';
+    Https.open("GET", url);
+    Https.send();
 
 
-    Http.onload = () => {
+    Https.onload = () => {
 
         //console.log(Http.responseText);
         cityDetails = JSON.parse(Http.responseText);
