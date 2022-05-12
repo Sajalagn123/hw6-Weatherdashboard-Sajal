@@ -21,3 +21,7 @@ Added clear history button to remove cities from the list. Also fixed bug where 
 
 ## Instalation
 To install my project, I created a repository for it on Github. After that I cloned the repository onto my desktop. I then copied the folders from my class repository and pasted them into my folder. From there, I opened the assignments into a serperate folder.
+
+Link to deployed page: https://github.com/Sajalagn123/hw6-Weatherdashboard-Sajal
+
+![weatherdashboard](https://user-images.githubusercontent.com/98942793/167985439-f44165fd-fde7-4c6f-99b3-f94b6381969e.JPG)
