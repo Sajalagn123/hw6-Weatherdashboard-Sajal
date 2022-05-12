@@ -17,5 +17,7 @@ Page now loads Los Angeles city data as the default page so it doesn't display n
 
 Updated JS file including adding the city name being displayed and made added CSS styling.
 
+Added clear history button to remove cities from the list. Also fixed bug where hard coded cities would breifly show up. Fixed other bug where cities would duplicate themselves in search history area when search button is clicked.
+
 ## Instalation
 To install my project, I created a repository for it on Github. After that I cloned the repository onto my desktop. I then copied the folders from my class repository and pasted them into my folder. From there, I opened the assignments into a serperate folder.
