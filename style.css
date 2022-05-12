@@ -72,7 +72,9 @@ button {
 
 #search {
     margin-top: 11px;
-    background-color: #72cb74;
+    background-color: #16af1a;
+    width: 134px;
+    margin-right: 35px;
 }
 
 hr {
@@ -157,4 +159,10 @@ display: flex;
 .bg-extremelyHigh {
     background-color:rgb(149 79 113)
 ;
+}
+
+#clear {
+    background-color: red;
+    width: 134px;
+    margin-left: -38px;
 }

@@ -1,7 +1,6 @@
 var results;
 var city_name;
 
-
 if (localStorage.getItem("citylist") == null) {
     localStorage.setItem("citylist", '[]');
 }
@@ -97,12 +96,15 @@ function searchButton(cityname = '') {
         var currentCityList = localStorage.getItem("citylist");
 
         currentCityList = JSON.parse(currentCityList);
-
+        
+        if(currentCityList.indexOf(x) == -1)
+        {
         currentCityList.push(x);
 
 
         currentCityList = JSON.stringify(currentCityList);
         localStorage.setItem("citylist", currentCityList);
+        }
     }
     else {
         x = cityname;
@@ -153,6 +155,9 @@ function searchButton(cityname = '') {
 
 searchButton('los angeles');
 
+function clearHistory() {
+    localStorage.setItem("citylist", '[]');
+    refreshHistory();
+}
 
-//http://api.weatherapi.com/v1/current.json?key=ad1e479decca463983d231628220405&q=London&aqi=no
 
